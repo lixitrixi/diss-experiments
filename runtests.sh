@@ -7,7 +7,6 @@ cd "$(dirname "$0")"
 FORMAT="User: %U seconds, System: %S seconds, Real: %e seconds"
 
 run_test() {
-    echo $1
     time bash -c "$1" >> out.txt 2>> err.txt
 }
 export -f run_test

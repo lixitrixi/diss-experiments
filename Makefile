@@ -1,6 +1,8 @@
 
 .PHONY: tests
 tests: tests.txt
+
+tests.txt:
 	./mktests.sh
 
 .PHONY: run

@@ -1,3 +1,6 @@
 *.txt
 *.log
 *log.json
+.MINION*
+conjure-output/
+*.solution
