@@ -4,8 +4,8 @@ cd "$(dirname "$0")"
 export SOLVERS="smt-lia-arrays smt-lia-atomic smt-bv-arrays smt-bv-atomic"
 
 mk_tests() {
-    echo "conjure-oxide solve --solver=$SOLVER $1"
-    echo "conjure-oxide solve --solver=$SOLVER --use-optimised-rewriter $1"
+    echo "conjure-oxide solve -n 1 -s $SOLVER $1"
+    echo "conjure-oxide solve -n 1 -s $SOLVER --use-optimised-rewriter $1"
 }
 export -f mk_tests
 
