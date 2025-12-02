@@ -10,4 +10,4 @@ gen_for_file() {
 }
 export -f gen_for_file
 
-find problems -name '*.essence' | parallel gen_for_file > commands.txt
+find problems -name '*.essence' | parallel gen_for_file > tests.txt
