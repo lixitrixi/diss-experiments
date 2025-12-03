@@ -8,4 +8,6 @@ Install [Conjure Oxide](https://github.com/conjure-cp/conjure-oxide) as an execu
 
 This project uses [GNU parallel](https://www.gnu.org/software/parallel/) to test several problem instances efficiently in high-performance computing environments.
 
+Install [jq](https://jqlang.org/) for command-line JSON parsing.
+
 ## How to Use

@@ -1,0 +1,5 @@
+bench_oxide smt-lia-arrays
+bench_oxide smt-lia-atomic
+bench_oxide smt-bv-arrays
+bench_oxide smt-bv-atomic
+bench_conjure
