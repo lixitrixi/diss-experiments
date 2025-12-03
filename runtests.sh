@@ -2,8 +2,10 @@
 cd "$(dirname "$0")"
 set -euxo pipefail
 
-export NOW="$(date +%Y-%m-%d_%H-%M-%S)"
 REPEATS=1
+NOW="$(date +%Y-%m-%d_%H-%M-%S)"
+ERR_FILE="output/err_$NOW.log"
+RESULTS_FILE="output/results_$NOW.csv"
 
 info() {
   echo "-- info: $*" >/dev/stderr
@@ -22,7 +24,7 @@ bench_oxide() {
     conjure-oxide solve -n 1 \
         -s $solver \
         --info-json-path=$statfile \
-        $probfile > /dev/null 2>> "output/err_$NOW.csv"
+        $probfile > /dev/null 2>> $ERR_FILE
 
     info "DONE: $probfile"
 
@@ -35,13 +37,18 @@ bench_conjure() {
     probfile=$1
 }
 
+# /// Run Tests ///
+
+export ERR_FILE
 export -f bench_conjure bench_oxide info err
 
 mkdir -p output
-echo "tool, solver, problem, repeat_iteration, solver_wall_time_s" > \
-    "output/results_$NOW.csv"
+echo "tool, solver, problem, repeat_iteration, solver_wall_time_s" > $RESULTS_FILE
 
 parallel --progress '{}' \
     :::: cmd-prefixes \
     ::: $(find problems -name '*.essence' | sort) \
-    ::: $(seq $REPEATS) >> "output/results_$NOW.csv"
+    ::: $(seq $REPEATS) >> $RESULTS_FILE
+
+echo "results written to $RESULTS_FILE\n"
+cat $RESULTS_FILE
