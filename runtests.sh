@@ -22,7 +22,6 @@ bench_oxide() {
     conjure-oxide solve -n 1 \
         -s $solver \
         --info-json-path=$statfile \
-        --use-optimised-rewriter \
         $probfile > /dev/null 2>> "output/err_$NOW.csv"
 
     info "DONE: $probfile"
@@ -39,7 +38,7 @@ bench_conjure() {
 export -f bench_conjure bench_oxide info err
 
 mkdir -p output
-echo "tool, solver, problem, repeat_iteration, solver_wall_time" > \
+echo "tool, solver, problem, repeat_iteration, solver_wall_time_s" > \
     "output/results_$NOW.csv"
 
 parallel --progress '{}' \
