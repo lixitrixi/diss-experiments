@@ -21,9 +21,10 @@ bench_oxide() {
     probfile=$2
     statfile=$(mktemp)
 
-    conjure-oxide solve -n 1 \
+    conjure-oxide solve \
+        -n 1 \
         -s $solver \
-        --info-json-path=$statfile \
+        --info-json-path $statfile \
         $probfile > /dev/null 2>> $ERR_FILE
 
     info "DONE: $probfile"
@@ -50,5 +51,5 @@ parallel --progress '{}' \
     ::: $(find problems -name '*.essence' | sort) \
     ::: $(seq $REPEATS) >> $RESULTS_FILE
 
-echo "results written to $RESULTS_FILE\n"
+echo "results written to $RESULTS_FILE"
 cat $RESULTS_FILE
