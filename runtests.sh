@@ -58,7 +58,7 @@ bench_conjure() {
     totaltime=$(jq -r '.totalTime' < $outdir/*.stats.json)
     rewritetime=$(echo "$totaltime - $solvetime" | bc -l)
 
-    echo "conjure, z3, $probfile, $3, $solvetime, $rewritetime"
+    echo "conjure, $solver, $probfile, $3, $solvetime, $rewritetime"
 }
 
 # /// Run Tests ///
