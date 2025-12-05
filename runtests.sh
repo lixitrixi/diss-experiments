@@ -41,11 +41,12 @@ bench_oxide() {
 
 # Run Conjure and print the solver time
 bench_conjure() {
-    probfile=$1
+    solver=$1
+    probfile=$2
     outdir=$(mktemp -d)
 
     conjure solve \
-        --solver z3 \
+        --solver $solver \
         -o $outdir \
         --copy-solutions=off \
         $probfile > /dev/null 2>> $ERR_FILE
