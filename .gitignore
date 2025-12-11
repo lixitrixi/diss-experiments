@@ -4,3 +4,8 @@
 .MINION*
 conjure-output/
 *.solution
+
+# Python
+.venv/
+
+figs/

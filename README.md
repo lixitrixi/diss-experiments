@@ -10,4 +10,12 @@ This project uses [GNU parallel](https://www.gnu.org/software/parallel/) to test
 
 Install [jq](https://jqlang.org/) for command-line JSON parsing.
 
+### Python Environment
+
+Create a python environment in the project directory (3.11+) and run:
+
+```
+    .venv/bin/activate && pip install -r requirements.txt
+```
+
 ## How to Use
