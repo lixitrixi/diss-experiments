@@ -25,6 +25,7 @@ bench_oxide() {
     conjure-oxide solve \
         -n 1 \
         -s $solver \
+        --solver-timeout 8hr\
         --info-json-path $statfile \
         $probfile > /dev/null 2>> $ERR_FILE
 

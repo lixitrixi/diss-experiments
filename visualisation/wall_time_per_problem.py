@@ -25,9 +25,9 @@ def wall_time_per_problem(df: pd.DataFrame, outdir: str):
     plt.yscale("log")
 
     plt.legend()
-    plt.title("Wall Time per Problem Instance")
+    plt.title("Solver Wall Time per Problem Instance")
     plt.xlabel("Problem Instance")
-    plt.ylabel("Wall Time (s)")
+    plt.ylabel("Solver Wall Time (s)")
 
     plt.xticks(rotation=30, ha="right")
     plt.tight_layout()
