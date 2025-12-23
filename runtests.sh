@@ -22,11 +22,19 @@ bench_oxide() {
     probfile=$2
     statfile=$(mktemp)
 
+    # This substring indicates it's safe to use the optimised rewriter
+    if grep -q experiment-use-optimised-rewriter $probfile; then
+        rewriter_arg="--use-optimised-rewriter"
+    else
+        rewriter_arg=""
+    fi
+
     conjure-oxide solve \
         -n 1 \
         -s $solver \
         --solver-timeout 12hr\
         --info-json-path $statfile \
+        $rewriter_arg \
         $probfile > /dev/null 2>> $ERR_FILE
 
     info "DONE (oxide): $probfile"

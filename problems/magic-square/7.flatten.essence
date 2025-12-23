@@ -3,6 +3,8 @@ $ prob019.essence: Magic Squares
 $ Problem details available at http://www.csplib.org/Problems/prob019/
 $ 05 September 2007
 
+$ experiment-use-optimised-rewriter
+
 $ letting n be 7
 
 letting Index be domain int(1..7),
