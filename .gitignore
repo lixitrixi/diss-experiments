@@ -1,9 +1,11 @@
 *.csv
+*.tsv
 *.log
 *log.json
 .MINION*
 conjure-output/
 *.solution
+.DS_Store
 
 # Python
 .venv/

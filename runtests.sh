@@ -25,7 +25,7 @@ bench_oxide() {
     conjure-oxide solve \
         -n 1 \
         -s $solver \
-        --solver-timeout 8hr\
+        --solver-timeout 12hr\
         --info-json-path $statfile \
         $probfile > /dev/null 2>> $ERR_FILE
 
@@ -44,12 +44,14 @@ bench_oxide() {
 bench_conjure() {
     solver=$1
     probfile=$2
+    opt_level=$3
     outdir=$(mktemp -d)
 
     conjure solve \
         --solver $solver \
         -o $outdir \
         --copy-solutions=off \
+        --savilerow-options="-O$opt_level" \
         $probfile > /dev/null 2>> $ERR_FILE
     
     info "DONE (conjure): $probfile"
@@ -71,7 +73,7 @@ mkdir -p output
 echo $COLUMNS > $RESULTS_FILE
 
 parallel -j80 --no-notice --eta --memfree 100G --resume-failed --joblog "output/jobs_$NOW.tsv" '{}' \
-    :::: cmd-prefixes \
+    :::: cmd-prefixes.sh \
     ::: $(find problems -name '*.essence' | sort) \
     ::: $(seq $REPEATS) >> $RESULTS_FILE
 
