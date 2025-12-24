@@ -80,7 +80,7 @@ export -f bench_conjure bench_oxide info err
 mkdir -p output
 echo $COLUMNS > $RESULTS_FILE
 
-parallel -j80 --no-notice --eta --memfree 100G --resume-failed --joblog "output/jobs_$NOW.tsv" '{}' \
+parallel -j80 --no-notice --progress --eta --memfree 100G --resume-failed --joblog "output/jobs_$NOW.tsv" '{}' \
     :::: cmd-prefixes.sh \
     ::: $(find problems -name '*.essence' | sort) \
     ::: $(seq $REPEATS) >> $RESULTS_FILE
