@@ -37,7 +37,7 @@ bench_oxide() {
         $rewriter_arg \
         $probfile > /dev/null 2>> $ERR_FILE
 
-    info "DONE (oxide): $probfile"
+    info "DONE ($solver): $probfile"
 
     secs=$(jq -r '.stats.rewriterRuns.[0].rewriterRunTime.secs' < $statfile)
     nanos=$(jq -r '.stats.rewriterRuns.[0].rewriterRunTime.nanos' < $statfile)
@@ -62,14 +62,14 @@ bench_conjure() {
         --savilerow-options="-O$opt_level" \
         $probfile > /dev/null 2>> $ERR_FILE
 
-    info "DONE (conjure): $probfile"
+    info "DONE ($solver ($opt_level)): $probfile"
 
     solvetime=$(jq -r '.savilerowInfo.SolverTotalTime' < $outdir/*.stats.json)
 
     totaltime=$(jq -r '.totalTime' < $outdir/*.stats.json)
     rewritetime=$(echo "$totaltime - $solvetime" | bc -l)
 
-    echo "conjure, $solver, $probfile, $3, $solvetime, $rewritetime"
+    echo "conjure, $solver (-O$opt_level), $probfile, $3, $solvetime, $rewritetime"
 }
 
 # /// Run Tests ///
