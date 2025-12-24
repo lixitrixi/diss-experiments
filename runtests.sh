@@ -45,7 +45,7 @@ bench_oxide() {
 
     solvetime=$(jq -r '.stats.solverRuns.[0].conjureSolverWallTime_s' < $statfile)
 
-    echo "conjure-oxide, $solver, $probfile, $3, $solvetime, $rewritetime"
+    echo "conjure-oxide, oxide $solver, $probfile, $3, $solvetime, $rewritetime"
 }
 
 # Run Conjure and print the solver time
@@ -69,7 +69,7 @@ bench_conjure() {
     totaltime=$(jq -r '.totalTime' < $outdir/*.stats.json)
     rewritetime=$(echo "$totaltime - $solvetime" | bc -l)
 
-    echo "conjure, c-$solver (-O$opt_level), $probfile, $3, $solvetime, $rewritetime"
+    echo "conjure, conjure $solver (-O$opt_level), $probfile, $3, $solvetime, $rewritetime"
 }
 
 # /// Run Tests ///
