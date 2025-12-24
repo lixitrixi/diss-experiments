@@ -43,17 +43,10 @@ def run_instance(essence: str):
     solved = os.path.exists("instance.solution")
     essence = essence.format(time=dur)
 
-    os.system("conjure solve instance.essence")
+    os.system("conjure solve --solver z3-lia instance.essence")
     os.chdir(prev_dir)
 
     return essence, solved, dur
-
-
-# def generate_and_time(essence):
-#     essence = generate_essence()
-#     dur, solved = run_instance(essence)
-#     essence = essence.format(time=dur)
-#     return essence, dur, solved
 
 
 # Generate and organise into 4 folders by quartiles of time taken

@@ -11,7 +11,10 @@ def wall_time_per_problem(df: pd.DataFrame, outdir: str):
     df["problem"] = (
         df["problem"].str.replace("problems/", "").str.replace(".essence", "")
     )
+
+    # Filter timeouts and clamp small values
     df = df[df["solver_wall_time_s"] <= SOLVER_WALL_TIME_CUTOFF]
+    df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(lower=10**-2)
 
     # Compute virtual best solver (VBS)
     best = df.loc[df.groupby("problem")["solver_wall_time_s"].idxmin()].copy()

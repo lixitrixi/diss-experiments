@@ -62,14 +62,14 @@ bench_conjure() {
         --savilerow-options="-O$opt_level" \
         $probfile > /dev/null 2>> $ERR_FILE
 
-    info "DONE ($solver ($opt_level)): $probfile"
+    info "DONE ($solver (-O$opt_level)): $probfile"
 
     solvetime=$(jq -r '.savilerowInfo.SolverTotalTime' < $outdir/*.stats.json)
 
     totaltime=$(jq -r '.totalTime' < $outdir/*.stats.json)
     rewritetime=$(echo "$totaltime - $solvetime" | bc -l)
 
-    echo "conjure, $solver (-O$opt_level), $probfile, $3, $solvetime, $rewritetime"
+    echo "conjure, c-$solver (-O$opt_level), $probfile, $3, $solvetime, $rewritetime"
 }
 
 # /// Run Tests ///
