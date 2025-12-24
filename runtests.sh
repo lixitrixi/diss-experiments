@@ -31,9 +31,9 @@ bench_oxide() {
 
     conjure-oxide solve \
         -n 1 \
-        -s $solver \
+        -s="$solver" \
         --solver-timeout 12hr\
-        --info-json-path $statfile \
+        --info-json-path="$statfile" \
         $rewriter_arg \
         $probfile > /dev/null 2>> $ERR_FILE
 
@@ -51,17 +51,17 @@ bench_oxide() {
 # Run Conjure and print the solver time
 bench_conjure() {
     solver=$1
-    probfile=$2
-    opt_level=$3
+    opt_level=$2
+    probfile=$3
     outdir=$(mktemp -d)
 
     conjure solve \
-        --solver $solver \
-        -o $outdir \
+        --solver="$solver" \
+        -o="$outdir" \
         --copy-solutions=off \
         --savilerow-options="-O$opt_level" \
         $probfile > /dev/null 2>> $ERR_FILE
-    
+
     info "DONE (conjure): $probfile"
 
     solvetime=$(jq -r '.savilerowInfo.SolverTotalTime' < $outdir/*.stats.json)
