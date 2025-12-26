@@ -15,8 +15,8 @@ such that s = sum([i | i <- x])
 
 def generate_list():
     nums = set()
-    for _ in range(100):
-        candidate = random.randint(-1000, 1000)
+    for _ in range(500):
+        candidate = random.randint(-5000, 5000)
         if (-candidate) not in nums and candidate != 0:
             nums.add(candidate)
 
