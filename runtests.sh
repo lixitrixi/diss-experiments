@@ -20,6 +20,7 @@ err() {
 bench_oxide() {
     solver=$1
     probfile=$2
+    smtfile=$(mktemp)
     statfile=$(mktemp)
 
     # This substring indicates it's safe to use the optimised rewriter
@@ -29,13 +30,18 @@ bench_oxide() {
         rewriter_arg=""
     fi
 
+    # Write to SMTLIB file, then run z3 directly on it
     conjure-oxide solve \
-        -n 1 \
         -s="$solver" \
-        --solver-timeout 12hr\
+        --save-solver-input-file="$smtfile" \
+        --no-run-solver \
         --info-json-path="$statfile" \
         $rewriter_arg \
         $probfile > /dev/null 2>> $ERR_FILE
+
+    echo '(get-info :all-statistics)' >> $smtfile
+
+    result=$(z3 $smtfile)
 
     info "DONE ($solver): $probfile"
 
@@ -43,7 +49,7 @@ bench_oxide() {
     nanos=$(jq -r '.stats.rewriterRuns.[0].rewriterRunTime.nanos' < $statfile)
     rewritetime=$(echo "$secs + $nanos/10^9" | bc -l)
 
-    solvetime=$(jq -r '.stats.solverRuns.[0].conjureSolverWallTime_s' < $statfile)
+    solvetime=$(echo $result | grep ':time' | sed -E 's/.*:time[[:space:]]+([0-9.]+).*/\1/')
 
     echo "conjure-oxide, oxide $solver, $probfile, $3, $solvetime, $rewritetime"
 }
