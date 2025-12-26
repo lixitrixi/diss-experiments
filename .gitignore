@@ -2,13 +2,17 @@
 *.tsv
 *.log
 *log.json
+*.zip
+
 .MINION*
-conjure-output/
 *.solution
+conjure-output/
+
+figs/
+_compare/
+
 .DS_Store
 
 # Python
 .venv/
 
-figs/
-subset-sum.zip
