@@ -15,7 +15,7 @@ such that s = sum([i | i <- x])
 
 def generate_list():
     nums = set()
-    for _ in range(500):
+    for _ in range(300):
         candidate = random.randint(-5000, 5000)
         if (-candidate) not in nums and candidate != 0:
             nums.add(candidate)
@@ -55,7 +55,7 @@ def main():
     os.makedirs(outdir, exist_ok=True)
 
     instances = [generate_essence() for _ in range(1000)]
-    with multiprocessing.Pool(80) as p:
+    with multiprocessing.Pool(40) as p:
         results = p.map(run_instance, instances)
 
     df = pd.DataFrame(results, columns=["essence", "solved", "time"])
