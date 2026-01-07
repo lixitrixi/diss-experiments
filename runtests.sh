@@ -20,6 +20,7 @@ err() {
 bench_oxide() {
     solver=$1
     probfile=$2
+    iteration=$3
     smtfile=$(mktemp)
     statfile=$(mktemp)
 
@@ -51,7 +52,7 @@ bench_oxide() {
 
     solvetime=$(echo $result | grep ':time' | sed -E 's/.*:time[[:space:]]+([0-9.]+).*/\1/')
 
-    echo "conjure-oxide, oxide $solver, $probfile, $3, $solvetime, $rewritetime"
+    echo "conjure-oxide, $solver, $probfile, $iteration, $solvetime, $rewritetime"
 }
 
 # Run Conjure and print the solver time
@@ -59,6 +60,7 @@ bench_conjure() {
     solver=$1
     opt_level=$2
     probfile=$3
+    iteration=$4
     outdir=$(mktemp -d)
 
     conjure solve \
@@ -75,7 +77,7 @@ bench_conjure() {
     totaltime=$(jq -r '.totalTime' < $outdir/*.stats.json)
     rewritetime=$(echo "$totaltime - $solvetime" | bc -l)
 
-    echo "conjure, conjure $solver (-O$opt_level), $probfile, $3, $solvetime, $rewritetime"
+    echo "conjure, $solver (-O$opt_level), $probfile, $iteration, $solvetime, $rewritetime"
 }
 
 # /// Run Tests ///

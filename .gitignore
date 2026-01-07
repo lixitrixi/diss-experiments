@@ -15,4 +15,5 @@ _compare/
 
 # Python
 .venv/
+__pycache__/
 
