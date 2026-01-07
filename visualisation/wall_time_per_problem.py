@@ -1,20 +1,10 @@
 import sys, os, pandas as pd, matplotlib.pyplot as plt
-
-SOLVER_WALL_TIME_CUTOFF = 12 * 60 * 60  # 12 hours
+import utils
 
 
 def wall_time_per_problem(df: pd.DataFrame, outdir: str):
     """A line chart with X=problem instance and Y=solver wall time.
     Each line represents a specific solver configuration."""
-
-    # Normalize problem names
-    df["problem"] = (
-        df["problem"].str.replace("problems/", "").str.replace(".essence", "")
-    )
-
-    # Filter timeouts and clamp small values
-    df = df[df["solver_wall_time_s"] <= SOLVER_WALL_TIME_CUTOFF]
-    df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(lower=10**-2)
 
     # Compute virtual best solver (VBS)
     best = df.loc[df.groupby("problem")["solver_wall_time_s"].idxmin()].copy()
@@ -60,5 +50,5 @@ def wall_time_per_problem(df: pd.DataFrame, outdir: str):
 if __name__ == "__main__":
     csv, outdir = sys.argv[1:3]
     os.makedirs(outdir, exist_ok=True)
-    df = pd.read_csv(csv, skipinitialspace=True)
+    df = utils.read_and_clean(csv)
     wall_time_per_problem(df, outdir)
