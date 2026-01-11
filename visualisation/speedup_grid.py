@@ -3,16 +3,11 @@ from matplotlib.lines import Line2D
 import utils
 
 
-def speedup_grid(df: pd.DataFrame, outdir: str):
+def speedup_grid(df: pd.DataFrame, outdir: str, suffix: str):
     """A grid of scatterplots allowing each solver to be compared against the others.
     Each (x, y) is the wall time of one solver plotted against the wall time of the other.
     """
-
-    # Only compare against lower Savile Row optimisation
-    df = df[df["solver"].apply(lambda name: "-O2" not in name)]
-
-    # Extract problem group (first directory)
-    df["problem_group"] = df["problem"].apply(lambda p: p.split("/")[0])
+    df = df.copy()
 
     solvers = df["solver"].unique()
     solvers.sort()
@@ -46,11 +41,12 @@ def speedup_grid(df: pd.DataFrame, outdir: str):
         for group in groups
     ]
 
-    fig, axs = plt.subplots(num_solvers, num_solvers, figsize=(10, 10))
+    figw = num_solvers * 1.6
+    fig, axs = plt.subplots(num_solvers, num_solvers, figsize=(figw, figw))
 
-    for i, s1 in enumerate(solvers):
-        for j, s2 in enumerate(solvers):
-            ax: plt.Axes = axs[i, j]
+    for x, sx in enumerate(solvers):
+        for y, sy in enumerate(solvers):
+            ax: plt.Axes = axs[y, x]
             ax.set_box_aspect(1)
 
             ax.set_xscale("log")
@@ -58,26 +54,26 @@ def speedup_grid(df: pd.DataFrame, outdir: str):
             ax.set_xlim(min_t, max_t)
             ax.set_ylim(min_t, max_t)
 
-            if i == j:
+            if x == y:
                 # ax.axis("off")
                 continue
 
-            x = np.linspace(min_t, max_t)
-            ax.plot(x, x, color="blue", lw=0.3)
+            l = np.linspace(min_t, max_t)
+            ax.plot(l, l, color="blue", lw=0.3)
 
-            s1_by_prob = df[df["solver"] == s1].set_index("problem")
-            s2_by_prob = df[df["solver"] == s2].set_index("problem")
-            joined = s1_by_prob.join(s2_by_prob, lsuffix="_s1", rsuffix="_s2")
+            sx_by_prob = df[df["solver"] == sx].set_index("problem")
+            sy_by_prob = df[df["solver"] == sy].set_index("problem")
+            joined = sx_by_prob.join(sy_by_prob, lsuffix="_sx", rsuffix="_sy")
 
             # Plot each problem group with its own marker
             for group, marker in marker_by_group.items():
-                g = joined[joined["problem_group_s1"] == group]
+                g = joined[joined["problem_group_sx"] == group]
                 if g.empty:
                     continue
 
                 ax.scatter(
-                    g["solver_wall_time_s_s1"],
-                    g["solver_wall_time_s_s2"],
+                    g["solver_wall_time_s_sx"],
+                    g["solver_wall_time_s_sy"],
                     marker=marker,
                     s=20,
                     facecolors="none",
@@ -104,12 +100,25 @@ def speedup_grid(df: pd.DataFrame, outdir: str):
 
     fig.tight_layout()
 
-    plt.savefig(f"{outdir}/speedup_grid.png")
+    plt.savefig(f"{outdir}/speedup_grid_{suffix}.png")
     plt.close()
+
+
+def all_speedup_grids(df: pd.DataFrame, outdir: str):
+
+    speedup_grid(df, outdir, "all")
+
+    # Only compare against lower Savile Row optimisation
+    d = df[df["solver"].apply(lambda name: "-O2" not in name)]
+    speedup_grid(d, outdir, "no_O2")
+
+    # Only compare Conjure Oxide configurations
+    d = df[df["solver"].apply(lambda name: "z3-" not in name)]
+    speedup_grid(d, outdir, "oxide")
 
 
 if __name__ == "__main__":
     csv, outdir = sys.argv[1:3]
     os.makedirs(outdir, exist_ok=True)
     df = utils.read_and_clean(csv)
-    speedup_grid(df, outdir)
+    all_speedup_grids(df, outdir)
