@@ -21,8 +21,8 @@ bench_oxide() {
     solver=$1
     probfile=$2
     iteration=$3
-    smtfile=$(mktemp)
-    statfile=$(mktemp)
+    smtfile=$(mktemp -p tmp)
+    statfile=$(mktemp -p tmp)
 
     # This substring indicates it's safe to use the optimised rewriter
     if grep -q experiment-use-optimised-rewriter $probfile; then
@@ -61,7 +61,7 @@ bench_conjure() {
     opt_level=$2
     probfile=$3
     iteration=$4
-    outdir=$(mktemp -d)
+    outdir=$(mktemp -d -p tmp)
 
     conjure solve \
         --solver="$solver" \
@@ -85,6 +85,7 @@ bench_conjure() {
 export ERR_FILE
 export -f bench_conjure bench_oxide info err
 
+mkdir -p tmp
 mkdir -p output
 echo $COLUMNS > $RESULTS_FILE
 
