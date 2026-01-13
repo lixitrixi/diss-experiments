@@ -55,7 +55,7 @@ def main():
     os.makedirs(outdir, exist_ok=True)
 
     instances = [generate_essence() for _ in range(100)]
-    with multiprocessing.Pool(40) as p:
+    with multiprocessing.Pool(8) as p:
         results = p.map(run_instance, instances)
 
     df = pd.DataFrame(results, columns=["essence", "solved", "time"])
