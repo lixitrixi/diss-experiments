@@ -54,7 +54,7 @@ def main():
     outdir = sys.argv[1]
     os.makedirs(outdir, exist_ok=True)
 
-    instances = [generate_essence() for _ in range(1000)]
+    instances = [generate_essence() for _ in range(100)]
     with multiprocessing.Pool(40) as p:
         results = p.map(run_instance, instances)
 
