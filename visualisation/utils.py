@@ -12,11 +12,11 @@ def read_and_clean(csv):
     )
 
     # Filter timeouts and clamp small values
-    df = df[df["solver_wall_time_s"] <= SOLVER_WALL_TIME_CUTOFF]
-    df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(lower=10**-2)
-    # df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(
-    #     lower=10**-2, upper=SOLVER_WALL_TIME_CUTOFF
-    # )
+    # df = df[df["solver_wall_time_s"] <= SOLVER_WALL_TIME_CUTOFF]
+    # df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(lower=10**-2)
+    df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(
+        lower=10**-2, upper=SOLVER_WALL_TIME_CUTOFF
+    )
 
     # Extract problem group (first directory)
     df["problem_group"] = df["problem"].apply(lambda p: p.split("/")[0])

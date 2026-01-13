@@ -60,6 +60,12 @@ def speedup_grid(df: pd.DataFrame, outdir: str, suffix: str):
 
             l = np.linspace(min_t, max_t)
             ax.plot(l, l, color="blue", lw=0.3)
+            ax.axhline(
+                y=utils.SOLVER_WALL_TIME_CUTOFF, color="r", linestyle="--", linewidth=1
+            )
+            ax.axvline(
+                x=utils.SOLVER_WALL_TIME_CUTOFF, color="r", linestyle="--", linewidth=1
+            )
 
             sx_by_prob = df[df["solver"] == sx].set_index("problem")
             sy_by_prob = df[df["solver"] == sy].set_index("problem")
