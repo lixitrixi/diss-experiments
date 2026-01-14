@@ -19,3 +19,11 @@ Create a python environment in the project directory (3.11+) and run:
 ```
 
 ## How to Use
+
+An experiment can be run with `runtests.sh`. Although this is parallelised it can still take on the order of days to gather data.
+
+The resulting output CSV can be run through various visualisations. With the virtual environment active, run:
+
+    python visualisation/all.py <output.csv> figs
+
+This will place the visualisation in a folder `figs`.
