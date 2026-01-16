@@ -11,12 +11,17 @@ def read_and_clean(csv):
         df["problem"].str.replace("problems/", "").str.replace(".essence", "")
     )
 
-    # Filter timeouts and clamp small values
-    # df = df[df["solver_wall_time_s"] <= SOLVER_WALL_TIME_CUTOFF]
-    # df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(lower=10**-2)
+    # Clamp small values
     df["solver_wall_time_s"] = df["solver_wall_time_s"].clip(
         lower=10**-2, upper=SOLVER_WALL_TIME_CUTOFF
     )
+
+    idx = pd.MultiIndex.from_product(
+        [df["solver"].unique(), df["problem"].unique()],
+        names=["solver", "problem"],
+    )
+
+    df = df.set_index(["solver", "problem"]).reindex(idx).reset_index()
 
     # Extract problem group (first directory)
     df["problem_group"] = df["problem"].apply(lambda p: p.split("/")[0])

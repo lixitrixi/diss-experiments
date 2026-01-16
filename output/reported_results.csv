@@ -1,0 +1,134 @@
+tool, solver, problem, repeat_iteration, solver_wall_time_s, rewriter_wall_time_s
+conjure-oxide, smt-lia-arrays, problems/magic-square/3.flatten.essence, 1, 0.00, .07382001500000000000
+conjure-oxide, smt-lia-arrays, problems/magic-square/4.flatten.essence, 1, 0.03, .11777080400000000000
+conjure-oxide, smt-lia-arrays, problems/magic-square/3.essence, 1, 0.01, .19740194300000000000
+conjure-oxide, smt-lia-arrays, problems/subset-sum/q1.essence, 1, 0.01, .08814309000000000000
+conjure-oxide, smt-lia-arrays, problems/subset-sum/q2.essence, 1, 0.01, .09557291700000000000
+conjure-oxide, smt-lia-arrays, problems/magic-square/4.essence, 1, 0.21, .32423684800000000000
+conjure-oxide, smt-lia-arrays, problems/subset-sum/q3.essence, 1, 0.01, .16077311100000000000
+conjure-oxide, smt-lia-arrays, problems/subset-sum/q4.essence, 1, 0.01, .13830970100000000000
+conjure-oxide, smt-lia-atomic, problems/magic-square/3.flatten.essence, 1, 0.01, .12063976600000000000
+conjure-oxide, smt-lia-atomic, problems/magic-square/3.essence, 1, 0.01, .32248545100000000000
+conjure-oxide, smt-lia-atomic, problems/magic-square/4.flatten.essence, 1, 0.22, .17492792700000000000
+conjure-oxide, smt-lia-atomic, problems/subset-sum/q1.essence, 1, 0.01, .09720986600000000000
+conjure-oxide, smt-lia-atomic, problems/subset-sum/q2.essence, 1, 0.01, .09918638500000000000
+conjure-oxide, smt-lia-atomic, problems/subset-sum/q3.essence, 1, 0.01, .10098334900000000000
+conjure-oxide, smt-lia-atomic, problems/subset-sum/q4.essence, 1, 0.01, .10078707300000000000
+conjure-oxide, smt-lia-atomic, problems/magic-square/4.essence, 1, 0.01, .56272698000000000000
+conjure-oxide, smt-bv-arrays, problems/magic-square/3.flatten.essence, 1, 0.02, .17037017100000000000
+conjure-oxide, smt-bv-arrays, problems/magic-square/3.essence, 1, 0.02, .37068428900000000000
+conjure-oxide, smt-bv-atomic, problems/magic-square/3.flatten.essence, 1, 0.01, .15452631300000000000
+conjure-oxide, smt-bv-arrays, problems/magic-square/4.flatten.essence, 1, 0.29, .35022733700000000000
+conjure-oxide, smt-bv-arrays, problems/magic-square/4.essence, 1, 0.11, .67964874400000000000
+conjure-oxide, smt-bv-atomic, problems/magic-square/3.essence, 1, 0.02, .38229509900000000000
+conjure-oxide, smt-bv-atomic, problems/magic-square/4.flatten.essence, 1, 0.68, .23963622600000000000
+conjure, z3-lia (-O2), problems/magic-square/3.essence, 1, 0.01, .17
+conjure, z3-lia (-O2), problems/bibd/6-10-5-3-2.essence, 1, 0.825253701, .214746299
+conjure, z3-lia (-O2), problems/magic-square/3.flatten.essence, 1, 0.01, .16
+conjure, z3-lia (-O2), problems/bibd/7-7-3-3-1.essence, 1, 0.894727156, .225272844
+conjure, z3-lia (-O2), problems/magic-square/4.flatten.essence, 1, 0.04, .19
+conjure, z3-lia (-O2), problems/magic-square/4.essence, 1, 0.04, .22
+conjure, z3-lia (-O2), problems/bibd/7-14-6-3-2.essence, 1, 0.04, .39
+conjure, z3-lia (-O2), problems/bibd/9-12-4-3-1.essence, 1, 0.03, .54
+conjure-oxide, smt-bv-arrays, problems/magic-square/5.flatten.essence, 1, 2.49, .62476809900000000000
+conjure, z3-lia (-O2), problems/bibd/8-14-7-4-3.essence, 1, 0.23, .58
+conjure, z3-bv (-O2), problems/bibd/6-10-5-3-2.essence, 1, 1.185766035, .234233965
+conjure, z3-bv (-O2), problems/magic-square/3.essence, 1, 0.03, .18
+conjure, z3-bv (-O2), problems/magic-square/3.flatten.essence, 1, 0.03, .18
+conjure-oxide, smt-bv-atomic, problems/magic-square/4.essence, 1, 2.68, .59718385700000000000
+conjure, z3-bv (-O2), problems/bibd/7-7-3-3-1.essence, 1, 1.038954909, .301045091
+conjure, z3-bv (-O2), problems/bibd/7-14-6-3-2.essence, 1, 0.20, .46
+conjure, z3-bv (-O2), problems/bibd/9-12-4-3-1.essence, 1, 0.18, .49
+conjure, z3-lia (-O0), problems/magic-square/3.flatten.essence, 1, 0.01, .07
+conjure, z3-lia (-O0), problems/magic-square/3.essence, 1, 0.01, .10
+conjure, z3-lia (-O0), problems/bibd/7-7-3-3-1.essence, 1, 0.18, .16
+conjure, z3-lia (-O0), problems/magic-square/4.essence, 1, 0.02, .12
+conjure, z3-lia (-O0), problems/magic-square/4.flatten.essence, 1, 0.02, .12
+conjure, z3-bv (-O2), problems/bibd/8-14-7-4-3.essence, 1, 1.54, .49
+conjure, z3-lia (-O2), problems/subset-sum/q3.essence, 1, 0.01, .24
+conjure, z3-lia (-O2), problems/magic-square/5.flatten.essence, 1, 2.85, .25
+conjure, z3-lia (-O2), problems/subset-sum/q1.essence, 1, 0.01, .21
+conjure, z3-lia (-O2), problems/subset-sum/q4.essence, 1, 0.01, .18
+conjure, z3-lia (-O0), problems/bibd/6-10-5-3-2.essence, 1, 2.18, .15
+conjure, z3-bv (-O2), problems/magic-square/4.essence, 1, 2.98, .21
+conjure, z3-bv (-O2), problems/magic-square/4.flatten.essence, 1, 3.08, .16
+conjure, z3-bv (-O0), problems/magic-square/3.essence, 1, 0.04, .12
+conjure, z3-lia (-O2), problems/magic-square/5.essence, 1, 4.14, .27
+conjure, z3-bv (-O0), problems/magic-square/3.flatten.essence, 1, 0.03, .08
+conjure, z3-bv (-O0), problems/bibd/6-10-5-3-2.essence, 1, 1.15, .21
+conjure, z3-lia (-O2), problems/subset-sum/q2.essence, 1, 0.01, .22
+conjure, z3-lia (-O0), problems/magic-square/5.essence, 1, 2.00, .11
+conjure, z3-bv (-O0), problems/bibd/7-7-3-3-1.essence, 1, 1.10, .20
+conjure, z3-bv (-O2), problems/subset-sum/q1.essence, 1, 0.81, .23
+conjure, z3-bv (-O0), problems/magic-square/4.flatten.essence, 1, 0.81, .12
+conjure, z3-bv (-O0), problems/magic-square/4.essence, 1, 0.78, .11
+conjure, z3-bv (-O2), problems/subset-sum/q4.essence, 1, 0.84, .23
+conjure, z3-lia (-O0), problems/subset-sum/q1.essence, 1, 0.01, .15
+conjure, z3-bv (-O0), problems/bibd/7-14-6-3-2.essence, 1, 2.37, .25
+conjure, z3-lia (-O0), problems/subset-sum/q3.essence, 1, 0.00, .12
+conjure, z3-lia (-O0), problems/subset-sum/q2.essence, 1, 0.01, .16
+conjure, z3-lia (-O0), problems/subset-sum/q4.essence, 1, 0.01, .11
+conjure, z3-bv (-O0), problems/bibd/9-12-4-3-1.essence, 1, 3.38, .19
+conjure, z3-bv (-O0), problems/bibd/8-14-7-4-3.essence, 1, 3.97, .27
+conjure, z3-bv (-O0), problems/subset-sum/q1.essence, 1, 0.72, .10
+conjure, z3-lia (-O0), problems/bibd/7-14-6-3-2.essence, 1, 7.38, .27
+conjure, z3-bv (-O0), problems/subset-sum/q4.essence, 1, 0.53, .10
+conjure, z3-lia (-O0), problems/magic-square/5.flatten.essence, 1, 10.57, .13
+conjure-oxide, smt-bv-arrays, problems/magic-square/5.essence, 1, 15.56, 1.13588905300000000000
+conjure-oxide, smt-lia-atomic, problems/bibd/7-7-3-3-1.essence, 1, 0.06, 21.45003086600000000000
+conjure, z3-bv (-O2), problems/subset-sum/q2.essence, 1, 12.65, .23
+conjure, z3-bv (-O2), problems/subset-sum/q3.essence, 1, 16.80, .22
+conjure, z3-bv (-O0), problems/subset-sum/q2.essence, 1, 12.20, .11
+conjure-oxide, smt-lia-arrays, problems/bibd/7-7-3-3-1.essence, 1, 0.66, 26.02087522500000000000
+conjure, z3-bv (-O0), problems/subset-sum/q3.essence, 1, 16.47, .10
+conjure, z3-bv (-O2), problems/magic-square/5.flatten.essence, 1, 25.59, .28
+conjure, z3-bv (-O2), problems/magic-square/5.essence, 1, 27.55, .29
+conjure, z3-lia (-O0), problems/magic-square/7.flatten.essence, 1, 26.37, .23
+conjure-oxide, smt-lia-atomic, problems/bibd/6-10-5-3-2.essence, 1, 0.24, 33.97332223400000000000
+conjure, z3-lia (-O0), problems/bibd/8-14-7-4-3.essence, 1, 33.27, .26
+conjure-oxide, smt-lia-arrays, problems/bibd/6-10-5-3-2.essence, 1, 0.97, 43.57173024800000000000
+conjure, z3-bv (-O0), problems/magic-square/5.flatten.essence, 1, 36.90, .14
+conjure-oxide, smt-bv-atomic, problems/magic-square/5.essence, 1, 57.56, .91701726600000000000
+conjure-oxide, smt-bv-atomic, problems/bibd/7-7-3-3-1.essence, 1, 2.04, 71.61075269500000000000
+conjure, z3-lia (-O0), problems/bibd/9-12-4-3-1.essence, 1, 93.77, .26
+conjure-oxide, smt-bv-atomic, problems/bibd/6-10-5-3-2.essence, 1, 3.08, 96.98181369400000000000
+conjure, z3-lia (-O0), problems/magic-square/6.flatten.essence, 1, 99.26, .16
+conjure-oxide, smt-lia-atomic, problems/bibd/7-14-6-3-2.essence, 1, 0.06, 114.03395477900000000000
+conjure-oxide, smt-bv-atomic, problems/magic-square/5.flatten.essence, 1, 115.94, .40094039800000000000
+conjure-oxide, smt-bv-arrays, problems/magic-square/7.flatten.essence, 1, 114.55, 2.41908325000000000000
+conjure, z3-lia (-O2), problems/magic-square/7.flatten.essence, 1, 121.58, .42
+conjure-oxide, smt-lia-atomic, problems/bibd/9-12-4-3-1.essence, 1, 0.12, 144.60398983100000000000
+conjure-oxide, smt-bv-arrays, problems/magic-square/6.flatten.essence, 1, 143.79, 1.14652805100000000000
+conjure-oxide, smt-lia-arrays, problems/bibd/7-14-6-3-2.essence, 1, 6.01, 148.11053468300000000000
+conjure-oxide, smt-bv-arrays, problems/bibd/7-7-3-3-1.essence, 1, 1.12, 160.90794276200000000000
+conjure-oxide, smt-lia-atomic, problems/bibd/8-14-7-4-3.essence, 1, 0.09, 165.00570701100000000000
+conjure, z3-bv (-O2), problems/magic-square/6.flatten.essence, 1, 164.44, .33
+conjure, z3-bv (-O0), problems/magic-square/5.essence, 1, 175.62, .14
+conjure-oxide, smt-lia-arrays, problems/bibd/9-12-4-3-1.essence, 1, 13.11, 181.69825340700000000000
+conjure-oxide, smt-lia-arrays, problems/bibd/8-14-7-4-3.essence, 1, 11.31, 199.81806882800000000000
+conjure-oxide, smt-bv-arrays, problems/bibd/6-10-5-3-2.essence, 1, 1.20, 218.40155251400000000000
+conjure-oxide, smt-lia-arrays, problems/magic-square/5.essence, 1, 274.19, .48662767600000000000
+conjure-oxide, smt-lia-atomic, problems/magic-square/5.essence, 1, 322.38, .66635447600000000000
+conjure-oxide, smt-bv-atomic, problems/bibd/7-14-6-3-2.essence, 1, 6.42, 408.88335850500000000000
+conjure, z3-bv (-O0), problems/magic-square/6.flatten.essence, 1, 522.14, .15
+conjure-oxide, smt-bv-atomic, problems/bibd/8-14-7-4-3.essence, 1, 8.05, 652.61878439900000000000
+conjure-oxide, smt-bv-atomic, problems/bibd/9-12-4-3-1.essence, 1, 8.48, 694.38849344800000000000
+conjure, z3-lia (-O2), problems/magic-square/6.flatten.essence, 1, 800.73, .30
+conjure-oxide, smt-bv-arrays, problems/bibd/7-14-6-3-2.essence, 1, 2.35, 967.00350510700000000000
+conjure-oxide, smt-lia-atomic, problems/magic-square/5.flatten.essence, 1, 1504.90, .25807860600000000000
+conjure-oxide, smt-bv-arrays, problems/bibd/8-14-7-4-3.essence, 1, 3.36, 1604.58597089800000000000
+conjure-oxide, smt-bv-arrays, problems/bibd/9-12-4-3-1.essence, 1, 4.00, 1676.78121295100000000000
+conjure-oxide, smt-lia-arrays, problems/magic-square/5.flatten.essence, 1, 2028.24, .16744523400000000000
+conjure-oxide, smt-lia-atomic, problems/magic-square/6.flatten.essence, 1, 6430.83, .39190494400000000000
+conjure, z3-bv (-O2), problems/magic-square/7.flatten.essence, 1, 6599.04, .44
+conjure-oxide, smt-bv-atomic, problems/subset-sum/q4.essence, 1, 6.82, 11483.93505491000000000000
+conjure-oxide, smt-bv-arrays, problems/subset-sum/q4.essence, 1, 6.77, 11708.56338132400000000000
+conjure-oxide, smt-bv-arrays, problems/subset-sum/q1.essence, 1, 7.75, 12424.44391536300000000000
+conjure-oxide, smt-bv-atomic, problems/subset-sum/q1.essence, 1, 7.57, 12428.73614693800000000000
+conjure-oxide, smt-bv-atomic, problems/subset-sum/q2.essence, 1, 11.24, 13529.78398637300000000000
+conjure-oxide, smt-bv-arrays, problems/subset-sum/q2.essence, 1, 11.72, 13808.59071450300000000000
+conjure-oxide, smt-bv-arrays, problems/subset-sum/q3.essence, 1, 7.75, 15732.91564336900000000000
+conjure-oxide, smt-bv-atomic, problems/subset-sum/q3.essence, 1, 7.12, 15791.48810331600000000000
+conjure, z3-bv (-O0), problems/magic-square/7.flatten.essence, 1, 33269.06, .21
+conjure-oxide, smt-bv-atomic, problems/magic-square/6.flatten.essence, 1, 50593.50, .73700693700000000000
+conjure-oxide, smt-lia-arrays, problems/magic-square/6.flatten.essence, 1, 218063.44, .25526551600000000000

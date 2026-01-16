@@ -12,7 +12,13 @@ def line_chart(df: pd.DataFrame, outdir: str, suffix: str, title_note: str = Non
         s = df[df["solver"] == solver].sort_values("problem")
         linestyle = "--" if "VBS" in solver else "-"
         plt.plot(
-            s["problem"], s["solver_wall_time_s"], label=solver, linestyle=linestyle
+            s["problem"],
+            s["solver_wall_time_s"],
+            label=solver,
+            linestyle=linestyle,
+            marker="o",
+            markersize=3,
+            alpha=0.8,
         )
 
     plt.yscale("log")
